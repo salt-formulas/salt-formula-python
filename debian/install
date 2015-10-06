@@ -1,0 +1,2 @@
+python/*             /usr/share/salt-formulas/env/python/
+metadata/service/*      /usr/share/salt-formulas/reclass/service/python/

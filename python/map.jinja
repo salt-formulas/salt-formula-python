@@ -1,0 +1,66 @@
+{%- load_yaml as base_defaults %}
+Arch:
+  pkgs:
+    system:
+    - python
+    development:
+    - python-pip
+    - python-virtualenv
+    - python-setuptools
+    django:
+    - gettext
+    - python-imaging
+    - python-docutils
+    - python-simplejson
+    - python-tz
+    - python-memcache
+    - libssl-dev
+    - libffi-dev
+Debian:
+  pkgs:
+    system:
+    - python
+    development:
+    - python-pip
+    - python-virtualenv
+    - python-setuptools
+    - python-dev
+    - build-essential
+    django:
+    - gettext
+    - python-imaging
+    - python-docutils
+    - python-simplejson
+    - python-tz
+    - python-memcache
+    - libssl-dev
+    - libffi-dev
+RedHat:
+  pkgs:
+    system:
+    - python
+    development:
+    - python-pip
+    - python-virtualenv
+    - python-setuptools
+    - python-devel
+    django:
+    - gettext
+    - python-imaging
+    - python-docutils
+    - python-simplejson
+    - python-tz
+    - python-memcache
+    - libssl-dev
+    - libffi-dev
+{%- endload %}
+
+{%- set environment = salt['grains.filter_by'](base_defaults, merge=salt['pillar.get']('python:environment')) %}
+
+{# STARTLEAGACY: development setup #}
+
+{%- if environment.get('development', False) %}
+{% set _dummy = environment.module.update({'development':True}) %}
+{%- endif %}
+
+{# ENDLEAGACY #}
