@@ -1,5 +1,8 @@
 {%- load_yaml as base_defaults %}
 Arch:
+  module: 
+    development: false
+    django: false
   pkgs:
     system:
     - python
@@ -17,6 +20,9 @@ Arch:
     - libssl-dev
     - libffi-dev
 Debian:
+  module: 
+    development: false
+    django: false
   pkgs:
     system:
     - python
@@ -36,6 +42,9 @@ Debian:
     - libssl-dev
     - libffi-dev
 RedHat:
+  module: 
+    development: false
+    django: false
   pkgs:
     system:
     - python
@@ -59,7 +68,7 @@ RedHat:
 
 {# STARTLEAGACY: development setup #}
 
-{%- if environment.get('development', False) %}
+{%- if environment.development is defined and environment.development %}
 {% set _dummy = environment.module.update({'development':True}) %}
 {%- endif %}
 

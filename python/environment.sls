@@ -14,6 +14,8 @@ python_development_packages:
   - require:
     - pkg: python_packages
 
+{%- endif %}
+
 {%- if network.proxy.host == 'none' %}
 
 /root/pip/pip.conf:
@@ -28,8 +30,6 @@ python_development_packages:
   file.managed:
   - template: jinja
   - source: salt://python/files/pip.conf
-
-{%- endif %}
 
 {%- endif %}
 
