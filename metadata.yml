@@ -1,6 +1,6 @@
 name: "python"
 version: "0.2"
-source: "https://github.com/tcpcloud/salt-formula-python"
+source: "https://github.com/salt-formulas/salt-formula-python"
 dependencies:
 - name: linux
   source: "https://github.com/salt-formulas/salt-formula-linux"
