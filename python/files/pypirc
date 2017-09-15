@@ -1,0 +1,18 @@
+[distutils]
+index-servers =
+    local
+{%- if environment.pypi_mirror.get('upstream_fallback', false) %}
+    pypi
+{%- endif %}
+
+[local]
+username: {{ environment.pypi_mirror.get('user', 'user') }}
+password: {{ environment.pypi_mirror.get('password', 'password') }}
+repository: {{ environment.pypi_mirror.host }}:{{ environment.pypi_mirror.port }}/
+
+{%- if environment.pypi_mirror.get('upstream_fallback', false) == True %}
+[pypi]
+username: {{ environment.get('pypi_user', 'user') }}
+password: {{ environment.get('pypi_password', 'password') }}
+repository: https://pypi.python.org/simple/
+{%- endif %}

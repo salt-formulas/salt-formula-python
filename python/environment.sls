@@ -16,22 +16,44 @@ python_development_packages:
 
 {%- endif %}
 
-{%- if network.proxy.host == 'none' %}
+{%- for user in environment.user %}
+{% set user_home = salt['user.info'](user.name).get('home') %}
 
-/root/pip/pip.conf:
+{%- if network.proxy.host == 'none' and user.pypi_mirror is not defined %}
+
+{{user_home}}/.pip/pip.conf:
   file.absent
-  
+
 {%- else %}
 
-/root/pip:
-  file.directory
-
-/root/pip/pip.conf:
+{{user_home}}/.pip/pip.conf:
   file.managed:
+  - defaults:
+      environment: {{ user }}
+  - makedirs: True
   - template: jinja
   - source: salt://python/files/pip.conf
 
 {%- endif %}
+
+{%- if user.pypi_mirror is defined %}
+
+{{user_home}}/.pydistutils.cfg:
+  file.managed:
+  - defaults:
+      environment: {{ user }}
+  - template: jinja
+  - source: salt://python/files/pydistutils.cfg
+
+{{user_home}}/.pypirc:
+  file.managed:
+  - defaults:
+      environment: {{ user }}
+  - template: jinja
+  - source: salt://python/files/pypirc
+
+{%- endif %}
+{%- endfor %}
 
 {%- if environment.module.django %}
 

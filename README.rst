@@ -50,6 +50,25 @@ Python django environment
         module:
           django: true
 
+Using offline mirrors
+
+.. code-block:: yaml
+
+    python:
+      environment:
+        enabled: true
+        user:
+        - root:
+            name: root
+            pypi_user: user
+            pypi_password: password
+            pypi_mirror:
+              host: http://pypi.local
+              port: 8084
+              upstream_fallback: true
+              user: user
+              password: password
+
 Read more
 =========
 
