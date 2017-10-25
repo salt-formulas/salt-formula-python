@@ -16,8 +16,8 @@ python_development_packages:
 
 {%- endif %}
 
-{%- for user in environment.user %}
-{% set user_home = salt['user.info'](user.name).get('home') %}
+{%- for user_name, user in environment.get('user',{}).iteritems() %}
+{% set user_home = salt['user.info'](user_name).get('home') %}
 
 {%- if network.proxy.host == 'none' and user.pypi_mirror is not defined %}
 

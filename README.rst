@@ -58,8 +58,7 @@ Using offline mirrors
       environment:
         enabled: true
         user:
-        - root:
-            name: root
+          root:
             pypi_user: user
             pypi_password: password
             pypi_mirror:
