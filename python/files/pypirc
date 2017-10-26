@@ -8,7 +8,7 @@ index-servers =
 [local]
 username: {{ environment.pypi_mirror.get('user', 'user') }}
 password: {{ environment.pypi_mirror.get('password', 'password') }}
-repository: {{ environment.pypi_mirror.host }}:{{ environment.pypi_mirror.port }}/
+repository: {{ environment.pypi_mirror.protocol }}://{{ environment.pypi_mirror.host }}:{{ environment.pypi_mirror.port }}/
 
 {%- if environment.pypi_mirror.get('upstream_fallback', false) == True %}
 [pypi]
