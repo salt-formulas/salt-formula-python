@@ -1,28 +1,35 @@
 
 ==============
-Python formula
+Usage
 ==============
 
-Python is a widely used general-purpose, high-level programming language. Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than would be possible in languages such as C++ or Java. The language provides constructs intended to enable clear programs on both a small and large scale.
+Python is a widely used general-purpose, high-level programming language.
+Its design philosophy emphasizes code readability, and its syntax allows
+programmers to express concepts in fewer lines of code than would be
+possible in languages such as C++ or Java. The language provides constructs
+intended to enable clear programs on both a small and large scale.
 
-Python supports multiple programming paradigms, including object-oriented, imperative and functional programming or procedural styles. It features a dynamic type system and automatic memory management and has a large and comprehensive standard library.
+Python supports multiple programming paradigms, including object-oriented,
+imperative and functional programming or procedural styles. It features a
+dynamic type system and automatic memory management and has a large and
+comprehensive standard library.
 
 Available metadata
 ==================
 
-service.environment.environment:
-  Basic Python environment
+* ``service.environment.environment``
+   Basic Python environment
 
-service.environment.development:
-  Python development environment
+* ``service.environment.development``
+   Python development environment
 
-python.environment.django:
-  Python Django environment
+* ``python.environment.django``
+   Python Django environment
 
 Sample pillars
 ==============
 
-Simple Python environment
+Simple Python environment:
 
 .. code-block:: yaml
 
@@ -30,7 +37,7 @@ Simple Python environment
       environment:
         enabled: true
 
-Development Python environment
+Development Python environment:
 
 .. code-block:: yaml
 
@@ -40,7 +47,7 @@ Development Python environment
         module:
           development: true
 
-Python django environment
+Python django environment:
 
 .. code-block:: yaml
 
@@ -50,7 +57,7 @@ Python django environment
         module:
           django: true
 
-Using offline mirrors
+Using offline mirrors:
 
 .. code-block:: yaml
 
@@ -77,32 +84,26 @@ Read more
 Documentation and Bugs
 ======================
 
-To learn how to install and update salt-formulas, consult the documentation
-available online at:
+* http://salt-formulas.readthedocs.io/
+   Learn how to install and update salt-formulas
 
-    http://salt-formulas.readthedocs.io/
+* https://github.com/salt-formulas/salt-formula-python/issues
+   In the unfortunate event that bugs are discovered, report the issue to the
+   appropriate issue tracker. Use the Github issue tracker for a specific salt
+   formula
 
-In the unfortunate event that bugs are discovered, they should be reported to
-the appropriate issue tracker. Use Github issue tracker for specific salt
-formula:
+* https://launchpad.net/salt-formulas
+   For feature requests, bug reports, or blueprints affecting the entire
+   ecosystem, use the Launchpad salt-formulas project
 
-    https://github.com/salt-formulas/salt-formula-python/issues
+* https://launchpad.net/~salt-formulas-users
+   Join the salt-formulas-users team and subscribe to mailing list if required
 
-For feature requests, bug reports or blueprints affecting entire ecosystem,
-use Launchpad salt-formulas project:
+* https://github.com/salt-formulas/salt-formula-python
+   Develop the salt-formulas projects in the master branch and then submit pull
+   requests against a specific formula
 
-    https://launchpad.net/salt-formulas
+* #salt-formulas @ irc.freenode.net
+   Use this IRC channel in case of any questions or feedback which is always
+   welcome
 
-You can also join salt-formulas-users team and subscribe to mailing list:
-
-    https://launchpad.net/~salt-formulas-users
-
-Developers wishing to work on the salt-formulas projects should always base
-their work on master branch and submit pull request against specific formula.
-
-    https://github.com/salt-formulas/salt-formula-python
-
-Any questions or feedback is always welcome so feel free to join our IRC
-channel:
-
-    #salt-formulas @ irc.freenode.net
